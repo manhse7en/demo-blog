@@ -1,0 +1,38 @@
+type User {
+	_id: String
+	name: String
+	username: String
+	email: String
+	password: String
+}
+
+input FrmNewUser {
+	name: String
+	username: String
+	email: String
+	password: String
+}
+
+input FrmUpUser {
+	name: String
+	email: String
+	password: String
+}
+
+input Login {
+	username: String
+	password: String
+}
+
+type Node {
+	id: ID
+}
+
+type Mutation {
+	createUser(frmNewUser: FrmNewUser): User
+	updateUser(login: Login, frmUpUser: FrmUpUser): Boolean
+}
+
+type Query {
+	getNode: Node
+}

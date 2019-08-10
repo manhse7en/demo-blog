@@ -29,7 +29,7 @@ public class User {
 			throw new GraphQLException("Tên đăng nhập phải có độ dài lớn hơn 6 ký tự");
 		user.setUsername(Jsoup.clean(user.getUsername(), Whitelist.none()));
 		this.username = user.getUsername().toLowerCase();
-		if (!user.getName().equals(""))
+		if (user.getName().equals(""))
 			throw new GraphQLException("Tên hiển thị không được để trống");
 		user.setName(Jsoup.clean(user.getName(), Whitelist.none()));
 		this.name = user.getName();

@@ -11,6 +11,10 @@ public class Category {
 	@Field("title")
 	String title;
 
+	public Category(String title) {
+		this.title = title;
+	}
+
 	public String get_id() {
 		return _id;
 	}

@@ -20,6 +20,12 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
 	MongoOperations mongoOperation = (MongoOperations) ctx.getBean("mongoTemplate");
 
 	@Override
+	public User get(String _id) {
+		Query query = new Query(Criteria.where("_id").is(_id));
+		return mongoOperation.findOne(query, User.class);
+	}
+
+	@Override
 	public User create(FrmNewUser newUser) {
 		return mongoOperation.save(new User(newUser));
 	}

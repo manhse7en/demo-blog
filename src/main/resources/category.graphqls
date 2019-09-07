@@ -1,0 +1,12 @@
+type Category {
+	_id: String
+	title: String
+}
+
+extend type Mutation {
+	createCategory(login: Login, title: String): Category
+}
+
+extend type Query {
+	categories: [Category]
+}

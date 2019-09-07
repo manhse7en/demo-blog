@@ -11,4 +11,8 @@ public interface UserService {
 
 	boolean updateUser(Login account, FrmUpUser upUser);
 
+	User login(Login login);
+
+	User get(String _id);
+
 }

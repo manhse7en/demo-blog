@@ -4,6 +4,7 @@ type User {
 	username: String
 	email: String
 	password: String
+	roles: [Int]
 }
 
 input FrmNewUser {

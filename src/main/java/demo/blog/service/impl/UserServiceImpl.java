@@ -19,6 +19,11 @@ public class UserServiceImpl implements UserService {
 	UserRepository userRepository;
 
 	@Override
+	public User get(String _id) {
+		return userRepository.get(_id);
+	}
+	
+	@Override
 	public User createUser(FrmNewUser newUser) {
 		return userRepository.create(newUser);
 	}
@@ -30,5 +35,10 @@ public class UserServiceImpl implements UserService {
 			return userRepository.update(user.get_id(), upUser);
 		}
 		throw new GraphQLException("Bạn chưa đăng nhập");
+	}
+
+	@Override
+	public User login(Login login) {
+		return userRepository.login(login);
 	}
 }

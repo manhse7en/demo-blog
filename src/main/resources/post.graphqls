@@ -1,0 +1,32 @@
+type Post {
+	_id: String
+	content: String
+	category: Category
+	user: User
+	created: Int
+}
+
+input FrmPost {
+	content: String
+	id_category: String
+}
+
+type PostEdge {
+	cursor: String
+	node: Post
+}
+
+type PostConnection {
+	edges: [PostEdge]
+	pageInfo: PageInfo
+}
+
+extend type Mutation {
+	createPost(login: Login, frmPost: FrmPost): Post
+	updatePost(login: Login, idPost: String, frmPost: FrmPost): Boolean
+	deletePost(login: Login, idPost: String): Boolean
+}
+
+extend type Query {
+	getPost(idPost: String): Post
+}

@@ -1,5 +1,9 @@
 package demo.blog.model;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.jsoup.Jsoup;
 import org.jsoup.safety.Whitelist;
 import org.springframework.data.annotation.Id;
@@ -23,7 +27,12 @@ public class User {
 	String password;
 	@Field("email")
 	String email;
+	@Field("roles")
+	List<Integer> roles = new ArrayList<>(Arrays.asList(Helper.getInstance().ROLE_MEMBER));
 
+	public User() {
+	}
+	
 	public User(FrmNewUser user) {
 		if (user.getUsername().length() < 6)
 			throw new GraphQLException("Tên đăng nhập phải có độ dài lớn hơn 6 ký tự");
@@ -80,6 +89,14 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public List<Integer> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Integer> roles) {
+		this.roles = roles;
 	}
 
 }

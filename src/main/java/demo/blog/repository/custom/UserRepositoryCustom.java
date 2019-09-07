@@ -13,4 +13,6 @@ public interface UserRepositoryCustom {
 
 	boolean update(String _id, FrmUpUser upUser);
 
+	User get(String _id);
+
 }

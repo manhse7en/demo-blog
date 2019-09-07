@@ -6,6 +6,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import demo.blog.graphql.frm.FrmPost;
+
 @Document(collection = "post")
 public class Post {
 
@@ -19,6 +21,14 @@ public class Post {
 	String id_user;
 	@Field("created")
 	int created = (int) (new Date().getTime() / 1000);
+
+	public Post() {
+	}
+
+	public Post(FrmPost newPost) {
+		this.content = newPost.getContent();
+		this.id_category = newPost.getId_category();
+	}
 
 	public String get_id() {
 		return _id;

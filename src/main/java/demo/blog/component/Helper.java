@@ -9,6 +9,10 @@ import graphql.GraphQLException;
 public class Helper {
 	private static Helper instance;
 
+	public int ROLE_ADMIN = 1;
+	public int ROLE_MANAGER = 2;
+	public int ROLE_MEMBER = 3;
+
 	private Helper() {
 	}
 
